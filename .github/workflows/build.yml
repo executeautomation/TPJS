@@ -50,7 +50,7 @@ jobs:
         done
     # Run all tests
     - name: Run flow tests (partial)
-      if: matrix.node-version == '15.x'
+      if: matrix.node-version == '16.x'
       env:
         TP_DEV_TOKEN: "dVQG8TQ0qCG3jKb_KIGa69b6V-xdkT_NFdsV9-VlwqY1"
         TP_AGENT_URL: http://localhost:8585
