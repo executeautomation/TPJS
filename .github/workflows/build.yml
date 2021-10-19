@@ -52,6 +52,6 @@ jobs:
     - name: Run flow tests (partial)
       if: matrix.node-version == '16.x'
       env:
-        TP_DEV_TOKEN: "dVQG8TQ0qCG3jKb_KIGa69b6V-xdkT_NFdsV9-VlwqY1"
+        TP_API_KEY: "dVQG8TQ0qCG3jKb_KIGa69b6V-xdkT_NFdsV9-VlwqY1"
       run: |
         node e2e_tests/JSProjectTest/firsttest.js
