@@ -57,5 +57,4 @@ jobs:
       run: |
         set -euo pipefail
         trap 'kill $(jobs -p)' EXIT ERR
-        docker-compose -f docker-compose.yml logs -f --tail=0 >> reports/agent.log&
-        node e2e_tests/firsttest.js
+        node e2e_tests/JSProjectTest/firsttest.js
