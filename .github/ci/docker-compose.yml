@@ -8,6 +8,7 @@ services:
       - firefox
     environment:
       TP_API_KEY: "${TP_API_KEY}"
+      TP_SDK_PORT: "8686"
       CHROME: "chrome:4444"
       CHROME_EXT: "localhost:5555"
       FIREFOX: "firefox:4444"
