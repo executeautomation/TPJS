@@ -1,0 +1,10 @@
+{
+    "scripts": {
+        "tests": "./node_modules/mocha/bin/mocha --timeout 10000"
+    },
+    "devDependencies": {
+        "@tpio/javascript-opensdk": "0.1.0",
+        "@types/mocha": "9.0.0",
+        "mocha": "^9.1.3"
+    }
+}
