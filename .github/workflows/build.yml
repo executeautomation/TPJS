@@ -32,7 +32,7 @@ jobs:
       run: npm install
 
     - name: Run TestProject Agent (Offline)
-      if: matrix.node-version == '15.x'
+      if: matrix.node-version == '16.x'
       run: |
         trap 'kill $(jobs -p)' EXIT ERR
         envsubst < .github/ci/docker-compose.yml > docker-compose.yml
