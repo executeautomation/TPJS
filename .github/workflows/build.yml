@@ -55,6 +55,4 @@ jobs:
         TP_DEV_TOKEN: "dVQG8TQ0qCG3jKb_KIGa69b6V-xdkT_NFdsV9-VlwqY1"
         TP_AGENT_URL: http://localhost:8585
       run: |
-        set -euo pipefail
-        trap 'kill $(jobs -p)' EXIT ERR
         node e2e_tests/JSProjectTest/firsttest.js
