@@ -1,4 +1,5 @@
 version: "3.1"
+
 services:
   testproject-agent:
     image: testproject/agent:latest
@@ -6,27 +7,18 @@ services:
     depends_on:
       - chrome
       - firefox
+    volumes:
+      - /path/to/host/folder:/var/testproject/agent
     environment:
       TP_API_KEY: "dVQG8TQ0qCG3jKb_KIGa69b6V-xdkT_NFdsV9-VlwqY1"
       TP_SDK_PORT: "8686"
       CHROME: "chrome:4444"
-      CHROME_EXT: "localhost:5555"
       FIREFOX: "firefox:4444"
-      FIREFOX_EXT: "localhost:6666"
-    volumes:
-      - "./reports:/var/testproject/agent/reports"
-    ports:
-    - "8585:8585"
-    - "8686:8686"
   chrome:
-    image: selenium/standalone-chrome:latest
-    volumes:
-      - /dev/shm:/dev/shm
+    image: selenium/standalone-chrome
+    shm_size: '1gb'
     ports:
-    - "5555:4444"
+      - "4444:4444"
   firefox:
-    image: selenium/standalone-firefox:latest
-    volumes:
-      - /dev/shm:/dev/shm
-    ports:
-    - "6666:4444"
+    image: selenium/standalone-firefox
+    shm_size: '1gb'
