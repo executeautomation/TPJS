@@ -31,12 +31,26 @@ jobs:
     - name: Install dependencies
       run: npm install
       
-    - name: Run TestProject Agent
+    # Run a TestProject Agent + Chrome & Firefox headless browsers
+    - name: Run and Register TestProject Agent
+      if: matrix.node-version == '15.x'
       env:
-        TP_API_KEY: ${{ secrets.TP_API_KEY }}
+        TP_API_KEY: ${{ secrets.TP_CI_API_KEY }}
       run: |
+        trap 'kill $(jobs -p)' EXIT ERR
         envsubst < .github/ci/docker-compose.yml > docker-compose.yml
-        docker-compose -f docker-compose.yml up -d    
+        docker-compose -f docker-compose.yml up -d
+        attempt_counter=0
+        max_attempts=45
+        docker-compose -f docker-compose.yml logs -f | tee reports/agent.log&
+        until curl -s http://localhost:8585/api/status | jq '.registered' | grep true; do
+          if [ ${attempt_counter} -eq ${max_attempts} ]; then
+            echo "Agent failed to register. Terminating..."
+            exit 1
+          fi
+          attempt_counter=$(($attempt_counter+1))
+          sleep 1
+        done
 
     # Run all tests
     - name: Run flow tests (partial)
