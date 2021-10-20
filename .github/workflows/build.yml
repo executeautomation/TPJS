@@ -33,7 +33,7 @@ jobs:
       
     # Run a TestProject Agent + Chrome & Firefox headless browsers
     - name: Run and Register TestProject Agent
-      if: matrix.node-version == '15.x'
+      if: matrix.node-version == '16.x'
       env:
         TP_API_KEY: ${{ secrets.TP_CI_API_KEY }}
       run: |
