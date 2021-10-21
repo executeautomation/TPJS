@@ -10,7 +10,7 @@ services:
     volumes:
       - /usr/bin:/var/testproject/agent
     environment:
-      TP_API_KEY: "dVQG8TQ0qCG3jKb_KIGa69b6V-xdkT_NFdsV9-VlwqY1"
+      TP_API_KEY: "7KNV1AodKQSkoQEo7GdHbqvqHF7d1Y5zzYtI4Pgs50k1"
       TP_SDK_PORT: "8686"
       CHROME: "chrome:4444"
       FIREFOX: "firefox:4444"
