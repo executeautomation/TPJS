@@ -15,7 +15,7 @@ services:
       CHROME: "chrome:4444"
       FIREFOX: "firefox:4444"
   chrome:
-    image: docker pull selenium/standalone-chrome:3.141.59
+    image: selenium/standalone-chrome:3.141.59
     shm_size: '1gb'
     ports:
       - "4444:4444"
