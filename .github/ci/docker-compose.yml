@@ -19,6 +19,7 @@ services:
     shm_size: '1gb'
     ports:
       - "4444:4444"
+
   firefox:
     image: selenium/standalone-firefox:3.141.59
     shm_size: '1gb'
