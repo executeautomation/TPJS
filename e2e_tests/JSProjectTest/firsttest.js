@@ -2,7 +2,7 @@ const { Builder} = require('@tpio/javascript-opensdk');
 const {By} = require('selenium-webdriver');
 
 (async () => {
-  const driver = await new Builder().forBrowser('chrome').withToken('dVQG8TQ0qCG3jKb_KIGa69b6V-xdkT_NFdsV9-VlwqY1').build()
+  const driver = await new Builder().forBrowser('chrome').withToken('EfUCtCDNcaXrUdVXoRZ9ZlBA16QB7Af0TRWWAutIY8k1').build()
   await driver.get("http://eaapp.somee.com/")
   
   await driver.findElement(By.linkText("Login")).click()
