@@ -35,7 +35,7 @@ jobs:
     - name: Run and Register TestProject Agent
       if: matrix.node-version == '16.x'
       env:
-        TP_API_KEY: ${{ secrets.TP_CI_API_KEY }}
+        TP_API_KEY: ${{ secrets.TP_API_KEY }}
       run: |
         trap 'kill $(jobs -p)' EXIT ERR
         envsubst < .github/ci/docker-compose.yml > docker-compose.yml
@@ -56,6 +56,6 @@ jobs:
     - name: Run flow tests (partial)
       if: matrix.node-version == '16.x'
       env:
-        TP_API_KEY: "dVQG8TQ0qCG3jKb_KIGa69b6V-xdkT_NFdsV9-VlwqY1"
+        TP_DEV_TOKEN: ${{secrets.TP_DEV_TOKEN}}
       run: |
         node e2e_tests/JSProjectTest/firsttest.js
