@@ -7,8 +7,7 @@ services:
     depends_on:
       - chrome
       - firefox
-    volumes:
-      - /usr/bin:/var/testproject/agent
+
     environment:
       TP_API_KEY: "EfUCtCDNcaXrUdVXoRZ9ZlBA16QB7Af0TRWWAutIY8k1"
       TP_SDK_PORT: "8686"
